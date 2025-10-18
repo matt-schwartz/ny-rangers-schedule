@@ -6,6 +6,5 @@
     "update": "node update-schedule.js"
   },
   "dependencies": {
-    "node-fetch": "^3.3.0"
   }
 }

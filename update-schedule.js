@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import fs from 'fs';
 
 // const TEAM_ID = 3; // NY Rangers team ID
@@ -84,16 +83,13 @@ async function generateHTML() {
     <style>
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
             font-family: Arial, sans-serif;
-            background: #f0f0f0;
         }
         #schedule-container {
             width: 800px;
             height: 480px;
             background: linear-gradient(135deg, #0033A0 0%, #CE1126 100%);
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
