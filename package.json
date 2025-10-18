@@ -1,0 +1,11 @@
+{
+  "name": "rangers-schedule",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "update": "node update-schedule.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  }
+}

@@ -1,0 +1,35 @@
+name: Update Rangers Schedule
+
+on:
+  schedule:
+    # Runs every day at 5 AM ET (12 PM UTC)
+    - cron: '0 12 * * *'
+  workflow_dispatch: # Allows manual trigger
+  push:
+    branches: [ main ]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Update schedule
+      run: npm run update
+      
+    - name: Commit and push if changed
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add index.html
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update schedule - $(date)" && git push)
