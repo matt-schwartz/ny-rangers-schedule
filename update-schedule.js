@@ -32,19 +32,31 @@ function formatGame(game, isLast = false) {
 
   const isHome = game.homeTeam.abbrev === 'NYR';
   const opponent = isHome ? game.awayTeam : game.homeTeam;
+  const nyrLogo = isHome ? game.homeTeam.logo : game.awayTeam.logo;
+  const oppLogo = isHome ? game.awayTeam.logo : game.homeTeam.logo;
+  const oppAbbrev = isHome ? game.awayTeam.abbrev : game.homeTeam.abbrev;
   const vsAt = isHome ? 'vs' : '@';
 
-  let scoreHtml = '';
+  let gameInfo = '';
   if (isLast && game.homeTeam.score !== undefined) {
     const rangerScore = isHome ? game.homeTeam.score : game.awayTeam.score;
     const oppScore = isHome ? game.awayTeam.score : game.homeTeam.score;
     const result = rangerScore > oppScore ? 'W' : (rangerScore < oppScore ? 'L' : 'T');
     const resultClass = rangerScore > oppScore ? 'win' : 'loss';
-    scoreHtml = `<div class="score ${resultClass}">${result} ${rangerScore}-${oppScore}</div>`;
+    gameInfo = `
+      <div class="score ${resultClass}">
+        <img src="${nyrLogo}" alt="NYR Logo"> NYR ${rangerScore} ${vsAt} ${oppAbbrev} ${oppScore} <img src="${oppLogo}" alt="Opponent Logo">
+      </div>
+    `;
+  } else {
+    const time = isLast ? '' : `<div class="game-time">${date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' })} ET</div>`;
+    const venue = isHome ? 'Madison Square Garden' : opponent.placeName?.default || 'Away Game';
+    gameInfo = `
+      <div class="opponent">${vsAt} ${opponent.commonName?.default || opponent.name?.default}</div>
+      ${time}
+      <div class="venue">${venue}</div>
+    `;
   }
-
-  const time = isLast ? '' : `<div class="game-time">${date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' })} ET</div>`;
-  const venue = isHome ? 'Madison Square Garden' : opponent.placeName?.default || 'Away Game';
 
   return `
     <div class="game-card ${isLast ? 'last-game' : ''}">
@@ -53,10 +65,7 @@ function formatGame(game, isLast = false) {
         <div class="day">${day}</div>
       </div>
       <div class="game-info">
-        <div class="opponent">${vsAt} ${opponent.commonName?.default || opponent.name?.default}</div>
-        ${time}
-        <div class="venue">${venue}</div>
-        ${scoreHtml}
+        ${gameInfo}
       </div>
     </div>
   `;
@@ -94,7 +103,7 @@ async function generateHTML() {
             overflow: hidden;
         }
         .header {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px 20px;
             text-align: center;
         }
@@ -118,7 +127,7 @@ async function generateHTML() {
             overflow-y: auto;
         }
         .last-game {
-            background: rgba(255, 255, 255, 0.98) !important;
+            background: #FFF !important;
             border-left: 4px solid #FFD700 !important;
             margin-bottom: 12px;
         }
@@ -135,7 +144,7 @@ async function generateHTML() {
             gap: 10px;
         }
         .game-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: #fff;
             border-radius: 8px;
             padding: 10px;
             display: flex;
@@ -154,7 +163,7 @@ async function generateHTML() {
             min-width: 55px;
         }
         .month {
-            font-size: 10px;
+            font-size: 12px;
             color: #0033A0;
             font-weight: bold;
             text-transform: uppercase;
@@ -185,9 +194,16 @@ async function generateHTML() {
             margin-top: 2px;
         }
         .score {
-            font-size: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 22px;
             font-weight: bold;
             margin-top: 4px;
+        }
+        .score img {
+            vertical-align: middle;
+            height: 30px;
         }
         .score.win {
             color: #00AA00;

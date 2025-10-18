@@ -18,7 +18,7 @@
             overflow: hidden;
         }
         .header {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px 20px;
             text-align: center;
         }
@@ -42,7 +42,7 @@
             overflow-y: auto;
         }
         .last-game {
-            background: rgba(255, 255, 255, 0.98) !important;
+            background: #FFF !important;
             border-left: 4px solid #FFD700 !important;
             margin-bottom: 12px;
         }
@@ -59,7 +59,7 @@
             gap: 10px;
         }
         .game-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: #fff;
             border-radius: 8px;
             padding: 10px;
             display: flex;
@@ -78,7 +78,7 @@
             min-width: 55px;
         }
         .month {
-            font-size: 10px;
+            font-size: 12px;
             color: #0033A0;
             font-weight: bold;
             text-transform: uppercase;
@@ -109,9 +109,16 @@
             margin-top: 2px;
         }
         .score {
-            font-size: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 22px;
             font-weight: bold;
             margin-top: 4px;
+        }
+        .score img {
+            vertical-align: middle;
+            height: 30px;
         }
         .score.win {
             color: #00AA00;
@@ -142,10 +149,11 @@
         <div class="day">16</div>
       </div>
       <div class="game-info">
-        <div class="opponent">@ Maple Leafs</div>
         
-        <div class="venue">Toronto</div>
-        <div class="score loss">L 1-2</div>
+      <div class="score loss">
+        <img src="https://assets.nhle.com/logos/nhl/svg/NYR_light.svg" alt="NYR Logo"> NYR 1 @ TOR 2 <img src="https://assets.nhle.com/logos/nhl/svg/TOR_light.svg" alt="Opponent Logo">
+      </div>
+    
       </div>
     </div>
   
@@ -158,10 +166,11 @@
         <div class="day">18</div>
       </div>
       <div class="game-info">
-        <div class="opponent">@ Canadiens</div>
-        <div class="game-time">8:00 PM ET</div>
-        <div class="venue">Montréal</div>
         
+      <div class="opponent">@ Canadiens</div>
+      <div class="game-time">8:00 PM ET</div>
+      <div class="venue">Montréal</div>
+    
       </div>
     </div>
   
@@ -171,10 +180,11 @@
         <div class="day">20</div>
       </div>
       <div class="game-info">
-        <div class="opponent">vs Wild</div>
-        <div class="game-time">8:00 PM ET</div>
-        <div class="venue">Madison Square Garden</div>
         
+      <div class="opponent">vs Wild</div>
+      <div class="game-time">8:00 PM ET</div>
+      <div class="venue">Madison Square Garden</div>
+    
       </div>
     </div>
   
@@ -184,10 +194,11 @@
         <div class="day">23</div>
       </div>
       <div class="game-info">
-        <div class="opponent">vs Sharks</div>
-        <div class="game-time">8:00 PM ET</div>
-        <div class="venue">Madison Square Garden</div>
         
+      <div class="opponent">vs Sharks</div>
+      <div class="game-time">8:00 PM ET</div>
+      <div class="venue">Madison Square Garden</div>
+    
       </div>
     </div>
   
@@ -197,10 +208,11 @@
         <div class="day">26</div>
       </div>
       <div class="game-info">
-        <div class="opponent">@ Flames</div>
-        <div class="game-time">8:00 PM ET</div>
-        <div class="venue">Calgary</div>
         
+      <div class="opponent">@ Flames</div>
+      <div class="game-time">8:00 PM ET</div>
+      <div class="venue">Calgary</div>
+    
       </div>
     </div>
   
@@ -210,10 +222,11 @@
         <div class="day">28</div>
       </div>
       <div class="game-info">
-        <div class="opponent">@ Canucks</div>
-        <div class="game-time">8:00 PM ET</div>
-        <div class="venue">Vancouver</div>
         
+      <div class="opponent">@ Canucks</div>
+      <div class="game-time">8:00 PM ET</div>
+      <div class="venue">Vancouver</div>
+    
       </div>
     </div>
   
@@ -223,16 +236,17 @@
         <div class="day">30</div>
       </div>
       <div class="game-info">
-        <div class="opponent">@ Oilers</div>
-        <div class="game-time">8:00 PM ET</div>
-        <div class="venue">Edmonton</div>
         
+      <div class="opponent">@ Oilers</div>
+      <div class="game-time">8:00 PM ET</div>
+      <div class="venue">Edmonton</div>
+    
       </div>
     </div>
   
             </div>
         </div>
-        <div class="update-time">Updated: 10/18/2025, 1:18:38 PM ET</div>
+        <div class="update-time">Updated: 10/18/2025, 2:05:56 PM ET</div>
     </div>
 </body>
 </html>
