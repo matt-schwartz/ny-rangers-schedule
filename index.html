@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NY Rangers Schedule</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        #schedule-container {
+            width: 800px;
+            height: 480px;
+            background: linear-gradient(135deg, #0033A0 0%, #CE1126 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .subtitle {
+            color: #ffffff;
+            font-size: 12px;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+        .content-wrapper {
+            padding: 15px 20px;
+            height: 370px;
+            overflow-y: auto;
+        }
+        .last-game {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border-left: 4px solid #FFD700 !important;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 15px 0 10px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+            border-left: 4px solid #CE1126;
+        }
+        .game-card:hover {
+            transform: translateX(5px);
+        }
+        .game-date {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 55px;
+        }
+        .month {
+            font-size: 10px;
+            color: #0033A0;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .day {
+            font-size: 22px;
+            font-weight: bold;
+            color: #CE1126;
+            line-height: 1;
+        }
+        .game-info {
+            flex: 1;
+            margin-left: 12px;
+        }
+        .opponent {
+            font-size: 14px;
+            font-weight: bold;
+            color: #0033A0;
+            margin-bottom: 2px;
+        }
+        .game-time {
+            font-size: 10px;
+            color: #666;
+        }
+        .venue {
+            font-size: 9px;
+            color: #999;
+            margin-top: 2px;
+        }
+        .score {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .score.win {
+            color: #00AA00;
+        }
+        .score.loss {
+            color: #CC0000;
+        }
+        .update-time {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div id="schedule-container">
+        <div class="header">
+            <div class="logo">New York Rangers</div>
+            <div class="subtitle">Schedule • 2025-26 Season</div>
+        </div>
+        <div class="content-wrapper">
+            <div class="section-title">Last Game</div>
+    <div class="game-card last-game">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">16</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">@ Maple Leafs</div>
+        
+        <div class="venue">Toronto</div>
+        <div class="score loss">L 1-2</div>
+      </div>
+    </div>
+  
+            <div class="section-title">Upcoming Games</div>
+            <div class="games-grid">
+                
+    <div class="game-card ">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">18</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">@ Canadiens</div>
+        <div class="game-time">8:00 PM ET</div>
+        <div class="venue">Montréal</div>
+        
+      </div>
+    </div>
+  
+    <div class="game-card ">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">20</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">vs Wild</div>
+        <div class="game-time">8:00 PM ET</div>
+        <div class="venue">Madison Square Garden</div>
+        
+      </div>
+    </div>
+  
+    <div class="game-card ">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">23</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">vs Sharks</div>
+        <div class="game-time">8:00 PM ET</div>
+        <div class="venue">Madison Square Garden</div>
+        
+      </div>
+    </div>
+  
+    <div class="game-card ">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">26</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">@ Flames</div>
+        <div class="game-time">8:00 PM ET</div>
+        <div class="venue">Calgary</div>
+        
+      </div>
+    </div>
+  
+    <div class="game-card ">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">28</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">@ Canucks</div>
+        <div class="game-time">8:00 PM ET</div>
+        <div class="venue">Vancouver</div>
+        
+      </div>
+    </div>
+  
+    <div class="game-card ">
+      <div class="game-date">
+        <div class="month">Oct</div>
+        <div class="day">30</div>
+      </div>
+      <div class="game-info">
+        <div class="opponent">@ Oilers</div>
+        <div class="game-time">8:00 PM ET</div>
+        <div class="venue">Edmonton</div>
+        
+      </div>
+    </div>
+  
+            </div>
+        </div>
+        <div class="update-time">Updated: 10/18/2025, 11:03:52 AM ET</div>
+    </div>
+</body>
+</html>
